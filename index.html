@@ -16,6 +16,20 @@
             src: url('cmuntt.ttf');
         }
 
+        @media (prefers-color-scheme: light) {
+            * {
+                color: #222;
+                background: #eee;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            * {
+                color: #eee;
+                background: #222;
+            }
+        }
+
         * {
             font-family: cmunvt;
         }
@@ -31,30 +45,41 @@
             text-align: center;
         }
 
-        a {
-            color: inherit;
-            text-decoration: inherit;
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
 
-            &:before {
-                display: inline-flex;
-                height: 1em;
-                width: 1em;
-                top: .25em;
-                align-self: center;
-                position: relative;
-                margin-right: .25em;
-            }
+            &>a {
+                color: inherit;
+                text-decoration: inherit;
 
-            &.email:before {
-                content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM20 7.23792L12.0718 14.338L4 7.21594V19H20V7.23792ZM4.51146 5L12.0619 11.662L19.501 5H4.51146Z'%3E%3C/path%3E%3C/svg%3E");
-            }
+                &:before {
+                    display: inline-flex;
+                    height: 1em;
+                    width: 1em;
+                    top: .25em;
+                    align-self: center;
+                    position: relative;
+                    margin-right: .25em;
+                    mask-type: alpha;
+                    background-color: currentColor;
+                }
 
-            &.github:before {
-                content: url('data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+R2l0SHViPC90aXRsZT48cGF0aCBkPSJNMTIgLjI5N2MtNi42MyAwLTEyIDUuMzczLTEyIDEyIDAgNS4zMDMgMy40MzggOS44IDguMjA1IDExLjM4NS42LjExMy44Mi0uMjU4LjgyLS41NzcgMC0uMjg1LS4wMS0xLjA0LS4wMTUtMi4wNC0zLjMzOC43MjQtNC4wNDItMS42MS00LjA0Mi0xLjYxQzQuNDIyIDE4LjA3IDMuNjMzIDE3LjcgMy42MzMgMTcuN2MtMS4wODctLjc0NC4wODQtLjcyOS4wODQtLjcyOSAxLjIwNS4wODQgMS44MzggMS4yMzYgMS44MzggMS4yMzYgMS4wNyAxLjgzNSAyLjgwOSAxLjMwNSAzLjQ5NS45OTguMTA4LS43NzYuNDE3LTEuMzA1Ljc2LTEuNjA1LTIuNjY1LS4zLTUuNDY2LTEuMzMyLTUuNDY2LTUuOTMgMC0xLjMxLjQ2NS0yLjM4IDEuMjM1LTMuMjItLjEzNS0uMzAzLS41NC0xLjUyMy4xMDUtMy4xNzYgMCAwIDEuMDA1LS4zMjIgMy4zIDEuMjMuOTYtLjI2NyAxLjk4LS4zOTkgMy0uNDA1IDEuMDIuMDA2IDIuMDQuMTM4IDMgLjQwNSAyLjI4LTEuNTUyIDMuMjg1LTEuMjMgMy4yODUtMS4yMy42NDUgMS42NTMuMjQgMi44NzMuMTIgMy4xNzYuNzY1Ljg0IDEuMjMgMS45MSAxLjIzIDMuMjIgMCA0LjYxLTIuODA1IDUuNjI1LTUuNDc1IDUuOTIuNDIuMzYuODEgMS4wOTYuODEgMi4yMiAwIDEuNjA2LS4wMTUgMi44OTYtLjAxNSAzLjI4NiAwIC4zMTUuMjEuNjkuODI1LjU3QzIwLjU2NSAyMi4wOTIgMjQgMTcuNTkyIDI0IDEyLjI5N2MwLTYuNjI3LTUuMzczLTEyLTEyLTEyIi8+PC9zdmc+');
-            }
+                &.email:before {
+                    content: '';
+                    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM20 7.23792L12.0718 14.338L4 7.21594V19H20V7.23792ZM4.51146 5L12.0619 11.662L19.501 5H4.51146Z'%3E%3C/path%3E%3C/svg%3E");
+                }
 
-            &.matrix:before {
-                content: url('data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TWF0cml4PC90aXRsZT48cGF0aCBkPSJNLjYzMi41NXYyMi45SDIuMjhWMjRIMFYwaDIuMjh2LjU1em03LjA0MyA3LjI2djEuMTU3aC4wMzNjLjMwOS0uNDQzLjY4My0uNzg0IDEuMTE3LTEuMDI0LjQzMy0uMjQ1LjkzNi0uMzY1IDEuNS0uMzY1LjU0IDAgMS4wMzMuMTA3IDEuNDgxLjMxNC40NDguMjA4Ljc4NS41ODIgMS4wMiAxLjEwOC4yNTQtLjM3NC42LS43MDYgMS4wMzQtLjk5Mi40MzQtLjI4Ny45NS0uNDMgMS41NDYtLjQzLjQ1MyAwIC44NzIuMDU2IDEuMjYuMTY3LjM4OC4xMS43MTYuMjg2Ljk5My41My4yNzYuMjQ1LjQ4OS41NTkuNjQ2Ljk1MS4xNTIuMzkyLjIzLjg2My4yMyAxLjQxN3Y1LjcyOGgtMi4zNDlWMTEuNTJjMC0uMjg2LS4wMS0uNTU5LS4wMzItLjgxMmExLjc1NSAxLjc1NSAwIDAgMC0uMTgtLjY2IDEuMTA2IDEuMTA2IDAgMCAwLS40MzgtLjQ0OGMtLjE5NC0uMTEtLjQ1Ny0uMTY2LS43ODUtLjE2Ni0uMzMyIDAtLjYuMDY0LS44MDMuMTg5YTEuMzggMS4zOCAwIDAgMC0uNDguNDk5IDEuOTQ2IDEuOTQ2IDAgMCAwLS4yMzEuNjk2IDUuNTYgNS41NiAwIDAgMC0uMDYuNzg1djQuNzY4aC0yLjM1di00LjhjMC0uMjU0LS4wMDQtLjUwMy0uMDE4LS43NTJhMi4wNzQgMi4wNzQgMCAwIDAtLjE0My0uNjg4IDEuMDUyIDEuMDUyIDAgMCAwLS40MTUtLjUwM2MtLjE5NC0uMTI1LS40NzYtLjE5LS44NTQtLjE5LS4xMTEgMC0uMjU5LjAyNC0uNDM5LjA3NC0uMTguMDUxLS4zNi4xNDMtLjUzLjI4Mi0uMTcxLjEzOC0uMzE5LjMzNy0uNDM5LjU5NS0uMTIuMjU5LS4xOC42LS4xOCAxLjAydjQuOTY2SDUuNDZWNy44MXptMTUuNjkzIDE1LjY0Vi41NUgyMS43MlYwSDI0djI0aC0yLjI4di0uNTV6Ii8+PC9zdmc+');
+                &.github:before {
+                    content: '';
+                    mask-image: url('data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+R2l0SHViPC90aXRsZT48cGF0aCBkPSJNMTIgLjI5N2MtNi42MyAwLTEyIDUuMzczLTEyIDEyIDAgNS4zMDMgMy40MzggOS44IDguMjA1IDExLjM4NS42LjExMy44Mi0uMjU4LjgyLS41NzcgMC0uMjg1LS4wMS0xLjA0LS4wMTUtMi4wNC0zLjMzOC43MjQtNC4wNDItMS42MS00LjA0Mi0xLjYxQzQuNDIyIDE4LjA3IDMuNjMzIDE3LjcgMy42MzMgMTcuN2MtMS4wODctLjc0NC4wODQtLjcyOS4wODQtLjcyOSAxLjIwNS4wODQgMS44MzggMS4yMzYgMS44MzggMS4yMzYgMS4wNyAxLjgzNSAyLjgwOSAxLjMwNSAzLjQ5NS45OTguMTA4LS43NzYuNDE3LTEuMzA1Ljc2LTEuNjA1LTIuNjY1LS4zLTUuNDY2LTEuMzMyLTUuNDY2LTUuOTMgMC0xLjMxLjQ2NS0yLjM4IDEuMjM1LTMuMjItLjEzNS0uMzAzLS41NC0xLjUyMy4xMDUtMy4xNzYgMCAwIDEuMDA1LS4zMjIgMy4zIDEuMjMuOTYtLjI2NyAxLjk4LS4zOTkgMy0uNDA1IDEuMDIuMDA2IDIuMDQuMTM4IDMgLjQwNSAyLjI4LTEuNTUyIDMuMjg1LTEuMjMgMy4yODUtMS4yMy42NDUgMS42NTMuMjQgMi44NzMuMTIgMy4xNzYuNzY1Ljg0IDEuMjMgMS45MSAxLjIzIDMuMjIgMCA0LjYxLTIuODA1IDUuNjI1LTUuNDc1IDUuOTIuNDIuMzYuODEgMS4wOTYuODEgMi4yMiAwIDEuNjA2LS4wMTUgMi44OTYtLjAxNSAzLjI4NiAwIC4zMTUuMjEuNjkuODI1LjU3QzIwLjU2NSAyMi4wOTIgMjQgMTcuNTkyIDI0IDEyLjI5N2MwLTYuNjI3LTUuMzczLTEyLTEyLTEyIi8+PC9zdmc+');
+                }
+
+                &.matrix:before {
+                    content: '';
+                    mask-image: url('data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TWF0cml4PC90aXRsZT48cGF0aCBkPSJNLjYzMi41NXYyMi45SDIuMjhWMjRIMFYwaDIuMjh2LjU1em03LjA0MyA3LjI2djEuMTU3aC4wMzNjLjMwOS0uNDQzLjY4My0uNzg0IDEuMTE3LTEuMDI0LjQzMy0uMjQ1LjkzNi0uMzY1IDEuNS0uMzY1LjU0IDAgMS4wMzMuMTA3IDEuNDgxLjMxNC40NDguMjA4Ljc4NS41ODIgMS4wMiAxLjEwOC4yNTQtLjM3NC42LS43MDYgMS4wMzQtLjk5Mi40MzQtLjI4Ny45NS0uNDMgMS41NDYtLjQzLjQ1MyAwIC44NzIuMDU2IDEuMjYuMTY3LjM4OC4xMS43MTYuMjg2Ljk5My41My4yNzYuMjQ1LjQ4OS41NTkuNjQ2Ljk1MS4xNTIuMzkyLjIzLjg2My4yMyAxLjQxN3Y1LjcyOGgtMi4zNDlWMTEuNTJjMC0uMjg2LS4wMS0uNTU5LS4wMzItLjgxMmExLjc1NSAxLjc1NSAwIDAgMC0uMTgtLjY2IDEuMTA2IDEuMTA2IDAgMCAwLS40MzgtLjQ0OGMtLjE5NC0uMTEtLjQ1Ny0uMTY2LS43ODUtLjE2Ni0uMzMyIDAtLjYuMDY0LS44MDMuMTg5YTEuMzggMS4zOCAwIDAgMC0uNDguNDk5IDEuOTQ2IDEuOTQ2IDAgMCAwLS4yMzEuNjk2IDUuNTYgNS41NiAwIDAgMC0uMDYuNzg1djQuNzY4aC0yLjM1di00LjhjMC0uMjU0LS4wMDQtLjUwMy0uMDE4LS43NTJhMi4wNzQgMi4wNzQgMCAwIDAtLjE0My0uNjg4IDEuMDUyIDEuMDUyIDAgMCAwLS40MTUtLjUwM2MtLjE5NC0uMTI1LS40NzYtLjE5LS44NTQtLjE5LS4xMTEgMC0uMjU5LjAyNC0uNDM5LjA3NC0uMTguMDUxLS4zNi4xNDMtLjUzLjI4Mi0uMTcxLjEzOC0uMzE5LjMzNy0uNDM5LjU5NS0uMTIuMjU5LS4xOC42LS4xOCAxLjAydjQuOTY2SDUuNDZWNy44MXptMTUuNjkzIDE1LjY0Vi41NUgyMS43MlYwSDI0djI0aC0yLjI4di0uNTV6Ii8+PC9zdmc+');
+                }
             }
         }
 
@@ -68,29 +93,31 @@
 <body>
     <main>
         <h1>Piotr Majkrzak</h1>
-        <section>
+        <section class="links">
             <a class="email" href="mailto:piotr@majkrzak.dev">piotr@majkrzak.dev</a>
             <a class="matrix" href="https://matrix.to/#/@piotr:majkrzak.dev">@piotr:majrzak.dev</a>
             <a class="github" href="https://github.com/majkrzak">github.com/majkrzak</a>
         </section>
-        <pre>
-            -----BEGIN PGP PUBLIC KEY BLOCK-----
+        <section>
+            <pre>
+                -----BEGIN PGP PUBLIC KEY BLOCK-----
 
-            mDMEY7DNABYJKwYBBAHaRw8BAQdA9MLHJtiDD/lg9aiCBkuAm+HZF9XGX22TH8UA
-            qkY3Vh60I1Bpb3RyIE1hamtyemFrIDxwaW90ckBtYWprcnphay5kZXY+iJAEExYI
-            ADgWIQS6KcUGk8wRvsYaEZgpwm53oewOpAUCY7DNAAIbAwULCQgHAgYVCgkICwIE
-            FgIDAQIeAQIXgAAKCRApwm53oewOpAWKAP0R+iNbQocJbNJVv6f5I9S5XOJIHnxQ
-            oIor9RPfMhHXvwEA7Xd51W4Kqi7rxijwyorMyYf2t5btMkrszBpuYmHE9wG4MwRj
-            sM0AFgkrBgEEAdpHDwEBB0BAG+QSiaJ8gwEiHYLEAiNP9q6Aox7+TcjyCdO4Ez3g
-            R4h4BBgWCAAgFiEEuinFBpPMEb7GGhGYKcJud6HsDqQFAmOwzQACGyAACgkQKcJu
-            d6HsDqRH6gD/TTgGAADOvqB1R5xwt7VO9EPYsHuR5fF4vDj8zuNR0DABALGen57G
-            AADR99CrT9Fozj+5xzlNzpFC/XRzof4leAMNuDgEY7DNABIKKwYBBAGXVQEFAQEH
-            QBy7BFWUM2D6VkrxsBpr8dvOB1QHV6npjjVwjDr2fOVKAwEIB4h4BBgWCAAgFiEE
-            uinFBpPMEb7GGhGYKcJud6HsDqQFAmOwzQACGwwACgkQKcJud6HsDqSmWQEA6/0k
-            7iygd07RwrBsUEyb5SEI+PwX6WVZE+KMUntQCgMA/ipZ6GLzyci11YzLqDnxweud
-            dEGTb1xSq4rHfzObhV4C
-            =3nlH
-            -----END PGP PUBLIC KEY BLOCK-----
-        </pre>
+                mDMEY7DNABYJKwYBBAHaRw8BAQdA9MLHJtiDD/lg9aiCBkuAm+HZF9XGX22TH8UA
+                qkY3Vh60I1Bpb3RyIE1hamtyemFrIDxwaW90ckBtYWprcnphay5kZXY+iJAEExYI
+                ADgWIQS6KcUGk8wRvsYaEZgpwm53oewOpAUCY7DNAAIbAwULCQgHAgYVCgkICwIE
+                FgIDAQIeAQIXgAAKCRApwm53oewOpAWKAP0R+iNbQocJbNJVv6f5I9S5XOJIHnxQ
+                oIor9RPfMhHXvwEA7Xd51W4Kqi7rxijwyorMyYf2t5btMkrszBpuYmHE9wG4MwRj
+                sM0AFgkrBgEEAdpHDwEBB0BAG+QSiaJ8gwEiHYLEAiNP9q6Aox7+TcjyCdO4Ez3g
+                R4h4BBgWCAAgFiEEuinFBpPMEb7GGhGYKcJud6HsDqQFAmOwzQACGyAACgkQKcJu
+                d6HsDqRH6gD/TTgGAADOvqB1R5xwt7VO9EPYsHuR5fF4vDj8zuNR0DABALGen57G
+                AADR99CrT9Fozj+5xzlNzpFC/XRzof4leAMNuDgEY7DNABIKKwYBBAGXVQEFAQEH
+                QBy7BFWUM2D6VkrxsBpr8dvOB1QHV6npjjVwjDr2fOVKAwEIB4h4BBgWCAAgFiEE
+                uinFBpPMEb7GGhGYKcJud6HsDqQFAmOwzQACGwwACgkQKcJud6HsDqSmWQEA6/0k
+                7iygd07RwrBsUEyb5SEI+PwX6WVZE+KMUntQCgMA/ipZ6GLzyci11YzLqDnxweud
+                dEGTb1xSq4rHfzObhV4C
+                =3nlH
+                -----END PGP PUBLIC KEY BLOCK-----
+            </pre>
+        </section>
     </main>
 </body>
